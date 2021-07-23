@@ -1,0 +1,83 @@
+<% layout('layout/boilerplate')%>
+
+    <!-- ----cart items details--- -->
+
+    <div class="table-container ">
+        <table class="table table-hover" style="width:100%;">
+            <thead>
+                <tr>
+                    <th class="decoHead" scope="col">#</th>
+                    <th class="decoHead" scope="col">Product</th>
+                    <th class="decoHead" scope="col">Quantity</th>
+                    <th class="decoHead" scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% console.log("hey",cart) %> 
+                <% let idx = 0 %> 
+                <% let total = 0 %> 
+                <% for (let item of cart) {%>
+                    <tr>
+                        <td>
+                        <div class="checkbox ">
+                            <input type="checkbox" class="chk" checked>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart-info">
+                            <img src="<%= item.image %> " style="width: 60px; margin:10px;" alt="">
+                            <div>
+                                <p><%= item.name  %> </p>
+                                <small>Price: Rs. <%= item.price  %> /-</small>
+                                <br>
+                                <a href="/cart/item/delete/<%= idx %> ">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span ><%= item.qty %> </span>
+                    </td>
+                    <% const pr =  parseInt(item.price) %> 
+                    <% total+= pr*(item.qty) %> 
+                    <td id="productTotal<%=idx%>"> Rs.<%= pr*(item.qty)  %>/-  </td>
+                    </tr>
+                    <% idx++; %> 
+                    <% } %>  
+
+            </tbody>
+        </table>
+
+
+        <div class="total-price" style="width: 100%;">
+            <table class="table table-hover">
+
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="subTotal">Rs.<%=total%>/-</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td id="tax">Rs.<%=total/100 %> /-</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td id="total">Rs.<%= total + total/100 %> /-</td>
+                </tr>
+                <tr>
+                    <td>
+                </td>
+                <td>
+                    <a href="" class="btn">Buy Now</a>
+
+                </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<script>
+    const cartCopy = <%-JSON.stringify(cart)%>
+</script>
+<script src="/updateCart.js">
+
+</script>

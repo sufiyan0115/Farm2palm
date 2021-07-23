@@ -1,0 +1,105 @@
+<% layout('layout/boilerplate')%>
+
+
+
+    <!-- -----single product details--- -->
+    <div class="small-container single-product">
+        <div class="row">
+            <div class="col-2">
+                <img src="<%= product.image %> " id="productImg" width="100%">
+
+               
+
+
+            </div>
+            <div class="col-2">
+                <%- include('./partials/error')  %> 
+                <%- include('./partials/flash')  %> 
+
+                <% let units = "per Kg" %>
+                <% if(product.category=="dairy") {%>
+                    <% units = "per pack" %> 
+                    <% } %>
+                    <% if(product.category =="poultry") {%>
+                    <% units = "per egg" %>
+                    <% } %>      
+                <p><%= product.category %> </p>
+                <h1><%= product.name %> </h1>
+                <h4>Rs. <%=product.price %> /- <%= units %> </h4>
+                <form action="/cart" method="POST">
+                    <% const PRICE = parseInt(product.price) %> 
+                    <input type="text" name="cartItem[name]" value="<%= product.name  %>" style="display: none;" >
+                    <input type="number" name="cartItem[price]" value="<%= PRICE %>" style="display: none;" >
+                    <input type="string" name="cartItem[image]" value="<%=  product.image %>" style="display: none;" >
+                <input type="number"  value="1" min="1" name="cartItem[qty]" id="">
+                <button class="btn btn-dark">Add To cart</button>
+                </form>
+                <h3>Product Details</h3>
+                <br>
+                <p class="fs-5">  <%= product.description %>  
+                   The product is pure and healthy for you. We have made sure that you get the best quality products...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----- title ----- -->
+
+    <div class="small-container other-products">
+        <div class="row row-2">
+            <h2 class="title">Our Other Products</h2>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="small-container other-products">
+
+        <div class="row">
+            <div class="col-4">
+              <a href="/products/#scrollHelper3">
+                <img src="/images/1.jpg" alt="">
+              </a>
+                <h4>Dairy</h4>
+
+            </div>
+            <div class="col-4">
+              <a href="/products/#scrollHelper1">
+            <img src="/images/2.jpg" alt="">
+          </a>
+
+                <h4>Fresh Fruits</h4>
+            </div>
+            <div class="col-4">
+              <a href="/products/#scrollHelper4">
+              
+                <img src="/images/3.jpg" alt="">
+                <h4>Organic Eggs</h4>
+              </a>
+            </div>
+            <div class="col-4">
+
+              <a href="/products/#scrollHelper2">
+                <img src="/images/4.jpg" alt="">
+                <h4>Fresh Vegetables</h4>
+              </a>
+            </div>
+
+            </div>
+
+
+
+
+
+
+    </div>
+
+    <script>
+       
+       const addToCart = document.querySelector('#addToCart');
+
+    </script>

@@ -1,0 +1,97 @@
+<% layout('layout/boilerplate')%>
+
+
+    <div class="small-container">
+
+       
+
+
+        <%- include('./partials/error')  %> 
+
+
+        <h1 id="scrollHelper1" class="title" style="margin-bottom: 5px !important;">All Products</h1>
+
+        <div class="row scrollHelpers sticky-top">
+            <a href="#scrollHelper1" class="btn-dark btn-scroll">Fruits</a>
+            <a href="#scrollHelper2" class="btn-dark btn-scroll">Vegetables</a>
+            <a href="#scrollHelper3" class="btn-dark btn-scroll">Dairy</a>
+            <a href="#scrollHelper4" class="btn-dark btn-scroll">Poultry</a>
+           
+        </div>
+
+        <h2  class="title">Fruits</h2>
+        <div class="row">
+            <% let idx = 0 %> 
+            <% for(fruit of fruits){ %> 
+            <div class="col-4 highlight">
+                <a href="/fruit/<%= idx %> "> <img src="<%= fruit.image %>" alt=""> </a>
+                <h4><%= fruit.name %> </h4>
+                <h5>Rs.<%= fruit.price %>/- </h5>
+                <h6 style="color: #ff523b;">Click for more &#8594;</h6>
+                </div>
+            <% idx++; %> 
+            <% } %> 
+
+        </div>
+
+        <span id="scrollHelper2" style="color: white;"><h2>Helper</h2></span>
+
+        <h2  class="title">Vegetables</h2>
+        <div class="row">
+            <% idx = 0 %> 
+            <% for(vegetable of vegetables){ %> 
+            <div class="col-4 highlight">
+               <a href="/vegetable/<%= idx %> "><img src="<%= vegetable.image %>" alt=""></a> 
+                <h4><%= vegetable.name %> </h4>
+                <h5>Rs.<%= vegetable.price %>/- </h5>
+                <h6 style="color: #ff523b;">Click for more &#8594;</h6>
+            </div>
+            <% idx++; %> 
+            <% } %> 
+
+        </div>
+
+        <span id="scrollHelper3" style="color: white;"><h2>Helper</h2></span>
+
+        <h2  class="title">Dairy Products</h2>
+        <div class="row">
+            <% idx = 0 %> 
+            <% for(dairy of dairys){ %> 
+            <div class="col-4 highlight">
+               <a href="/dairy/<%= idx %> "><img src="<%= dairy.image %>" alt=""></a> 
+                <h4><%= dairy.name %> </h4>
+                <h5>Rs.<%= dairy.price %>/- </h5>
+                <h6 style="color: #ff523b;">Click for more &#8594;</h6>
+            </div>
+            <% idx++; %> 
+            <% } %> 
+
+        </div>
+
+        <span id="scrollHelper4" style="color: white;"><h2>Helper</h2></span>
+
+        <h2 class="title">Poultry Products</h2>
+        <div class="row">
+            <% idx = 0 %> 
+            <% for(poultry of poultrys){ %> 
+            <div class="col-4 highlight">
+               <a href="/poultry/<%= idx %> "><img src="<%= poultry.image %>" alt=""></a> 
+                <h4><%= poultry.name %> </h4>
+                <h5>Rs.<%= poultry.price %>/- </h5>
+                <h6 style="color: #ff523b;">Click for more &#8594;</h6>
+            </div>
+            <% idx++; %> 
+            <% } %> 
+
+        </div>
+
+        <div class="page-btn">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
+
+
+    </div>
