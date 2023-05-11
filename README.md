@@ -13,5 +13,3 @@ implemented model of shopping cart.
 HTML, CSS , JavaScript, EJS, NodeJS, MongoDB,
 Passport.
 
-# **View App**
-## https://farm2palm.herokuapp.com/
